@@ -1,3 +1,3 @@
-  heroku apps:create <my-app>
-  git push heroku master
-  heroku open
+    heroku apps:create <my-app>
+    git push heroku master
+    heroku open
