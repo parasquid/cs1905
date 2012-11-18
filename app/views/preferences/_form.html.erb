@@ -1,0 +1,55 @@
+<%= form_for(@preference, html: {:class => 'form-horizontal'}) do |f| %>
+  <% if @preference.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@preference.errors.count, "error") %> prohibited this preference from being saved:</h2>
+
+      <ul>
+      <% @preference.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <legend>General</legend>
+  <table class="table table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Notification</th>
+        <th class='check-boxes'>Email</th>
+        <th class='check-boxes'>Popup</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% Preference.column_names.each do |item| %>
+      <tr>
+        <td><%= f.label t(item) %></td>
+        <td class='check-boxes'><%= preference_check_box_tags item %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <legend>New Challenge Notifications</legend>
+  <table class="table table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Notification</th>
+        <th class='check-boxes'>Email</th>
+        <th class='check-boxes'>Popup</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= label_tag category %></td>
+        <td class='check-boxes'><%= category_check_box_tags category %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <div class="actions">
+    <%= f.submit 'Save Preferences', :class => 'btn btn-primary' %>
+  </div>
+<% end %>

@@ -1,0 +1,6 @@
+<% if flash[:notice] || flash[:alert] %>
+  <div class="alert" id="notice">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <%= flash[:notice] || flash[:alert] %>
+  </div>
+<% end %>
