@@ -28,5 +28,6 @@ gem 'cloud_spokes_api_model', git: 'git://github.com/parasquid/cloud_spokes_api_
 group :development, :test do
   gem 'sextant'
   gem 'quiet_assets'
-  gem 'thin'
 end
+
+gem 'thin'
